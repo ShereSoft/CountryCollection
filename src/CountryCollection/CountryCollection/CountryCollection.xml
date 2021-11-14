@@ -83,12 +83,12 @@
             </summary>
             <returns>An enumerator that can be used to iterate through the collection.</returns>
         </member>
-        <member name="T:IsoCountriesExtensions">
+        <member name="T:CountryCollectionExtensions">
             <summary>
             Provides a set of static (Shared in Visual Basic) methods for querying a CountryCollection instance
             </summary>
         </member>
-        <member name="M:IsoCountriesExtensions.GetCountry(CountryCollection,System.String)">
+        <member name="M:CountryCollectionExtensions.GetCountry(CountryCollection,System.String)">
             <summary>
             Returns a matching country by code
             </summary>
@@ -96,7 +96,7 @@
             <param name="code">The value to find in the CountryCollection.</param>
             <returns>The matching country in the CountryCollection.</returns>
         </member>
-        <member name="M:IsoCountriesExtensions.GetCountry(CountryCollection,System.Int32)">
+        <member name="M:CountryCollectionExtensions.GetCountry(CountryCollection,System.Int32)">
             <summary>
             Returns a matching country by code
             </summary>
@@ -104,7 +104,7 @@
             <param name="code">The value to find in the CountryCollection.</param>
             <returns>The matching country in the CountryCollection.</returns>
         </member>
-        <member name="M:IsoCountriesExtensions.Contains(CountryCollection,System.String)">
+        <member name="M:CountryCollectionExtensions.Contains(CountryCollection,System.String)">
             <summary>
             Determines whether CountryCollection contains a specified code
             </summary>
@@ -112,7 +112,7 @@
             <param name="code">The value to check in the CountryCollection.</param>
             <returns>true if the CountryCollection contains a country that has the specified code; otherwise, false.</returns>
         </member>
-        <member name="M:IsoCountriesExtensions.Contains(CountryCollection,System.Int32)">
+        <member name="M:CountryCollectionExtensions.Contains(CountryCollection,System.Int32)">
             <summary>
             Determines whether CountryCollection contains a specified code.
             </summary>
@@ -120,7 +120,7 @@
             <param name="code">The value to check in the CountryCollection.</param>
             <returns>true if the CountryCollection contains a country that has the specified code; otherwise, false.</returns>
         </member>
-        <member name="M:IsoCountriesExtensions.Normalize(CountryCollection,System.String)">
+        <member name="M:CountryCollectionExtensions.Normalize(CountryCollection,System.String)">
             <summary>
             Returns a normalized value from the matching country code.
             </summary>
@@ -128,7 +128,7 @@
             <param name="code">The value to normalize</param>
             <returns>The normalized code in the CountryCollection.</returns>
         </member>
-        <member name="M:IsoCountriesExtensions.Normalize(CountryCollection,System.Int32)">
+        <member name="M:CountryCollectionExtensions.Normalize(CountryCollection,System.Int32)">
             <summary>
             Returns a normalized value from the matching country code.
             </summary>

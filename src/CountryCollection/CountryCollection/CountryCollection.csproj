@@ -15,6 +15,7 @@
 * Customizable (add and remove) country list
 * Unit tests for basic functions</PackageReleaseNotes>
 	<PackageTags>country;country code;countries;iso</PackageTags>
+	<Version>1.0.1</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net5.0|AnyCPU'">
