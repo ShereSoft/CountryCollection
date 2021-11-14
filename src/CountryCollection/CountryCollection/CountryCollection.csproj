@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<TargetFrameworks>net5.0;netcoreapp3.1;netstandard2.1;net40</TargetFrameworks>
+	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	<Authors>CTRYCLCTN</Authors>
+	<Company>CTRYCLCTN</Company>
+	<Description>Provides convenient access to country info including country codes and country names based on ISO3166. No library dependencies. No external calls.</Description>
+	<Copyright>Copyright © 2020-2021 Sheresoft</Copyright>
+	<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	<PackageProjectUrl>https://github.com/ShereSoft/CountryCollection</PackageProjectUrl>
+	<RepositoryUrl>https://github.com/ShereSoft/CountryCollection</RepositoryUrl>
+	<RepositoryType>git</RepositoryType>
+	<PackageReleaseNotes>* Static collection of countries for data, code validation and normalization
+* Customizable (add and remove) country list
+* Unit tests for basic functions</PackageReleaseNotes>
+	<PackageTags>country;country code;countries;iso</PackageTags>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net5.0|AnyCPU'">
+    <DocumentationFile>C:\Users\shigeru.sekoguchi\source\repos\CountryCollection\src\CountryCollection\CountryCollection\CountryCollection.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net5.0|AnyCPU'">
+    <DocumentationFile>C:\Users\shigeru.sekoguchi\source\repos\CountryCollection\src\CountryCollection\CountryCollection\CountryCollection.xml</DocumentationFile>
+  </PropertyGroup>
+
+</Project>
