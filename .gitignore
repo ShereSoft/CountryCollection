@@ -2,8 +2,8 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/src/CountryCollection/CountryCollectionTests/bin/Debug/net5.0
+/src/CountryCollection/CountryCollectionTests/bin
 /src/CountryCollection/CountryCollectionTests/obj
-/src/CountryCollection/.vs/CountryCollection
-/src/CountryCollection/CountryCollection/bin/Debug
+/src/CountryCollection/.vs
+/src/CountryCollection/CountryCollection/bin
 /src/CountryCollection/CountryCollection/obj
