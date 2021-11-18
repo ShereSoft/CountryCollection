@@ -1,12 +1,15 @@
 # CountryCollection
-Provides convenient access to country info including country codes and country names based on ISO3166. No library dependencies. No external calls.
+Provides convenient access to country info including country codes and country names based on ISO3166. A simple alternative to the machine-dependent RegionInfo data in the standard library. No library dependencies. No external calls.
 
 [![](https://img.shields.io/nuget/v/CountryCollection.svg)](https://www.nuget.org/packages/CountryCollection/)
 [![](https://img.shields.io/nuget/dt/CountryCollection)](https://www.nuget.org/packages/CountryCollection/)
 
 * Light-weight
+* Machine-independent country data (Alternative to the .NET Framework RegionInfo data)
+* Actively maintained (New features are added frequently.)
 * No external library dependencies
 * No external calls
+
 
 ### .Contains(code)
 ```csharp
