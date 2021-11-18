@@ -44,10 +44,28 @@ int numericCode = 32;
 string code = CountryCollection.Normalize(numericCode);  // "032" (Argentina)
 ```
 
+### .Normalize(code)
+```csharp
+string invalidCode = "xyz";
+string code = CountryCollection.Normalize(invalidCode);  // null
+```
+
+### .Normalize(code)
+```csharp
+int numericCode = 99999;
+string code = CountryCollection.Normalize(numericCode);  // null
+```
+
 ### .GetCountry(code)
 ```csharp
 string code = "US";
-var country = CountryCollection.GetCountry(code);
+var country = CountryCollection.GetCountry(code);  // { "IsoAlpha2Code":"US", "IsoAlpha3Code":"USA", "IsoNumeric":840, "IsoEnglishShortName":"United States of America (the)", "Name":"United States" }
+```
+
+### .GetCountry(code)
+```csharp
+string invalidCode = "XYZ";
+var country = CountryCollection.GetCountry(code);  // null
 ```
 
 ### [instance].Add(isoAlpha2Code, isoAlpha3Code, isoNumeric, isoName)
