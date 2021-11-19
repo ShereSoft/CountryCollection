@@ -1,12 +1,15 @@
 # CountryCollection
-Provides convenient access to country info including country codes and country names based on ISO3166. No library dependencies. No external calls.
+Provides convenient access to country info including country codes and country names based on ISO3166. A simple alternative to the machine-dependent RegionInfo data in the standard library. No library dependencies. No external calls.
 
 [![](https://img.shields.io/nuget/v/CountryCollection.svg)](https://www.nuget.org/packages/CountryCollection/)
 [![](https://img.shields.io/nuget/dt/CountryCollection)](https://www.nuget.org/packages/CountryCollection/)
 
 * Light-weight
+* Machine-independent country data (Alternative to the .NET Framework RegionInfo data)
+* Actively maintained (New features are added frequently.)
 * No external library dependencies
 * No external calls
+
 
 ### .Contains(code)
 ```csharp
@@ -44,10 +47,28 @@ int numericCode = 32;
 string code = CountryCollection.Normalize(numericCode);  // "032" (Argentina)
 ```
 
+### .Normalize(code)
+```csharp
+string invalidCode = "xyz";
+string code = CountryCollection.Normalize(invalidCode);  // null
+```
+
+### .Normalize(code)
+```csharp
+int numericCode = 99999;
+string code = CountryCollection.Normalize(numericCode);  // null
+```
+
 ### .GetCountry(code)
 ```csharp
 string code = "US";
-var country = CountryCollection.GetCountry(code);
+var country = CountryCollection.GetCountry(code);  // { "IsoAlpha2Code":"US", "IsoAlpha3Code":"USA", "IsoNumeric":840, "IsoEnglishShortName":"United States of America (the)", "Name":"United States" }
+```
+
+### .GetCountry(code)
+```csharp
+string invalidCode = "XYZ";
+var country = CountryCollection.GetCountry(code);  // null
 ```
 
 ### [instance].Add(isoAlpha2Code, isoAlpha3Code, isoNumeric, isoName)
