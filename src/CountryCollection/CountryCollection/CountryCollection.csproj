@@ -11,11 +11,13 @@
 	<PackageProjectUrl>https://github.com/ShereSoft/CountryCollection</PackageProjectUrl>
 	<RepositoryUrl>https://github.com/ShereSoft/CountryCollection</RepositoryUrl>
 	<RepositoryType>git</RepositoryType>
-	<PackageReleaseNotes>* Static collection of countries for data, code validation and normalization
-* Customizable (add and remove) country list
-* Unit tests for basic functions</PackageReleaseNotes>
-	<PackageTags>country;country code;countries;iso</PackageTags>
-	<Version>1.0.1</Version>
+	<PackageReleaseNotes>* Added full names
+* Added device-agonostic (general) names
+* Added indexer for getting the country by code
+* Added static enumeration (.Values)
+* Made all non-ISO names user-editable</PackageReleaseNotes>
+	<PackageTags>country;country code;countries;iso;countrycode;iso3166</PackageTags>
+	<Version>1.1.0</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net5.0|AnyCPU'">

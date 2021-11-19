@@ -11,14 +11,13 @@ using System.Threading.Tasks;
 public static class CountryCollectionExtensions
 {
     /// <summary>
-    /// Returns a matching country by code
+    /// Returns the matching country by code
     /// </summary>
     /// <param name="source">The CountryCollection</param>
     /// <param name="code">The value to find in the CountryCollection.</param>
     /// <returns>The matching country in the CountryCollection.</returns>
-    public static ReadOnlyCountryInfo GetCountry(this CountryCollection source, string code)
+    public static CountryInfo GetCountry(this CountryCollection source, string code)
     {
-        new string[0].FirstOrDefault();
         if (code == null)
         {
             throw new ArgumentNullException(nameof(code));
@@ -30,12 +29,12 @@ public static class CountryCollectionExtensions
     }
 
     /// <summary>
-    /// Returns a matching country by code
+    /// Returns the matching country by code
     /// </summary>
     /// <param name="source">The CountryCollection</param>
     /// <param name="code">The value to find in the CountryCollection.</param>
     /// <returns>The matching country in the CountryCollection.</returns>
-    public static ReadOnlyCountryInfo GetCountry(this CountryCollection source, int code)
+    public static CountryInfo GetCountry(this CountryCollection source, int code)
     {
         return source._numericIntDict.TryGetValue(code, out var ci) ? ci : null;
     }
@@ -63,7 +62,7 @@ public static class CountryCollectionExtensions
     }
 
     /// <summary>
-    /// Returns a normalized value from the matching country code.
+    /// Returns the normalized value from the matching country code.
     /// </summary>
     /// <param name="source">The CountryCollection</param>
     /// <param name="code">The value to normalize</param>
@@ -92,7 +91,7 @@ public static class CountryCollectionExtensions
     }
 
     /// <summary>
-    /// Returns a normalized value from the matching country code.
+    /// Returns the normalized value from the matching country code.
     /// </summary>
     /// <param name="source">The CountryCollection</param>
     /// <param name="code">A value to normalize</param>

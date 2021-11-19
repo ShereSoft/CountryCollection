@@ -6,43 +6,41 @@ using System.Linq;
 namespace ShereSoft
 {
     /// <summary>
-    /// Initializes a new instance of the ReadOnlyCountryInfo class
+    /// Initializes a new instance of the CountryInfo class
     /// </summary>
-    public sealed class ReadOnlyCountryInfo
+    public sealed class CountryInfo
     {
         /// <summary>
-        /// ISO English Short Name
+        /// ISO English Short Name (read only)
         /// </summary>
         public string IsoEnglishShortName { get; }
 
         /// <summary>
-        /// ISO Alpha 2 Code
+        /// ISO Alpha 2 Code (read only)
         /// </summary>
         public string IsoAlpha2Code { get; }
 
         /// <summary>
-        /// ISO Alpha 3 Code
+        /// ISO Alpha 3 Code (read only)
         /// </summary>
         public string IsoAlpha3Code { get; }
 
         /// <summary>
-        /// ISO Numeric Code
+        /// ISO Numeric Code (read only)
         /// </summary>
         public string IsoNumeric { get; }
 
         /// <summary>
         /// General name
         /// </summary>
-        public string Name { get => _name ?? IsoEnglishShortName; set => _name = value; }
-        string _name;
+        public string Name { get; set; }
 
-        static Dictionary<string, string> GeneralNames { get; set; } = CultureInfo.GetCultures(CultureTypes.SpecificCultures)
-            .Select(culture => new RegionInfo(culture.Name))
-            .Where(n => n.TwoLetterISORegionName.Length == 2 && n.TwoLetterISORegionName.All(Char.IsLetter))
-            .GroupBy(n => Tuple.Create(n.TwoLetterISORegionName, n.EnglishName))
-            .ToDictionary(t => t.Key.Item1, t => t.Key.Item2);
+        /// <summary>
+        /// General full name
+        /// </summary>
+        public string FullName { get; set; }
 
-        internal ReadOnlyCountryInfo(string isoAlpha2Code, string isoAlpha3Code, string isoNumeric, string isoName)
+        internal CountryInfo(string isoAlpha2Code, string isoAlpha3Code, string isoNumeric, string isoName, string generalName, string fullName)
         {
             if (isoAlpha2Code == null)
             {
@@ -64,26 +62,27 @@ namespace ShereSoft
                 throw new ArgumentNullException(nameof(isoName));
             }
 
-            if (isoAlpha2Code.Length != 2)
+            if (isoAlpha2Code.Length != 2 || !isoAlpha2Code.All(Char.IsLetter))
             {
-                throw new FormatException(nameof(isoAlpha2Code));
+                throw new FormatException($"{nameof(isoAlpha3Code)} must be a 2-digit alpha code.");
             }
 
-            if (isoAlpha3Code.Length != 3)
+            if (isoAlpha3Code.Length != 3 || !isoAlpha3Code.All(Char.IsLetter))
             {
-                throw new FormatException(nameof(isoAlpha3Code));
+                throw new FormatException($"{nameof(isoAlpha3Code)} must be a 3-digit alpha code.");
             }
 
             if (isoNumeric.Length != 3 || !isoNumeric.All(Char.IsNumber))
             {
-                throw new FormatException(nameof(isoNumeric));
+                throw new FormatException($"{nameof(isoNumeric)} must be all numeric characters.");
             }
 
             IsoAlpha2Code = isoAlpha2Code;
             IsoAlpha3Code = isoAlpha3Code;
             IsoNumeric = isoNumeric;
             IsoEnglishShortName = isoName;
-            Name = GeneralNames.TryGetValue(isoAlpha2Code, out var name) ? name : isoName;
+            Name = generalName;
+            FullName = fullName;
         }
 
         /// <summary>
@@ -93,7 +92,7 @@ namespace ShereSoft
         /// <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
         public override bool Equals(object obj)
         {
-            if (obj is ReadOnlyCountryInfo ci)
+            if (obj is CountryInfo ci)
             {
                 return ci.IsoAlpha2Code == IsoAlpha2Code && ci.IsoAlpha3Code == IsoAlpha3Code && ci.IsoNumeric == IsoNumeric;
             }

@@ -9,10 +9,22 @@
             Provides the class for a pre-loaded, read-only country collection or a customizable country list instance.
             </summary>
         </member>
+        <member name="P:CountryCollection.Values">
+            <summary>
+             Gets a collection containing all the countries
+            </summary>
+        </member>
         <member name="M:CountryCollection.#ctor">
             <summary>
             Initializes a new instance of the CountryCollection class that contains countries copied from the static CountryCollection object with add/remove capability
             </summary>
+        </member>
+        <member name="P:CountryCollection.Item(System.String)">
+            <summary>
+            Returns the matching country by code; null if not found
+            </summary>
+            <param name="code"></param>
+            <returns></returns>
         </member>
         <member name="M:CountryCollection.Add(System.String,System.String,System.String,System.String)">
             <summary>
@@ -23,11 +35,34 @@
             <param name="isoNumeric">The ISO numeric code</param>
             <param name="isoName">The country name</param>
         </member>
+        <member name="M:CountryCollection.Add(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Adds a country
+            </summary>
+            <param name="isoAlpha2Code">The ISO aplpha 2 code</param>
+            <param name="isoAlpha3Code">The ISO aplpha 3 code</param>
+            <param name="isoNumeric">The ISO numeric code</param>
+            <param name="isoName">The country name</param>
+            <param name="generalName">General name</param>
+            <param name="fullName">Full name</param>
+        </member>
         <member name="M:CountryCollection.Remove(System.String)">
             <summary>
             Removes the country by code
             </summary>
             <param name="code">The country code to remove from the current instance</param>
+        </member>
+        <member name="M:CountryCollection.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns>An enumerator that can be used to iterate through the collection.</returns>
+        </member>
+        <member name="M:CountryCollection.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns>An enumerator that can be used to iterate through the collection.</returns>
         </member>
         <member name="M:CountryCollection.GetCountry(System.String)">
             <summary>
@@ -71,18 +106,6 @@
             <param name="code">The value to normalize</param>
             <returns>The normalized code in the CountryCollection.</returns>
         </member>
-        <member name="M:CountryCollection.GetEnumerator">
-            <summary>
-            Returns an enumerator that iterates through the collection.
-            </summary>
-            <returns>An enumerator that can be used to iterate through the collection.</returns>
-        </member>
-        <member name="M:CountryCollection.System#Collections#IEnumerable#GetEnumerator">
-            <summary>
-            Returns an enumerator that iterates through the collection.
-            </summary>
-            <returns>An enumerator that can be used to iterate through the collection.</returns>
-        </member>
         <member name="T:CountryCollectionExtensions">
             <summary>
             Provides a set of static (Shared in Visual Basic) methods for querying a CountryCollection instance
@@ -90,7 +113,7 @@
         </member>
         <member name="M:CountryCollectionExtensions.GetCountry(CountryCollection,System.String)">
             <summary>
-            Returns a matching country by code
+            Returns the matching country by code
             </summary>
             <param name="source">The CountryCollection</param>
             <param name="code">The value to find in the CountryCollection.</param>
@@ -98,7 +121,7 @@
         </member>
         <member name="M:CountryCollectionExtensions.GetCountry(CountryCollection,System.Int32)">
             <summary>
-            Returns a matching country by code
+            Returns the matching country by code
             </summary>
             <param name="source">The CountryCollection</param>
             <param name="code">The value to find in the CountryCollection.</param>
@@ -122,7 +145,7 @@
         </member>
         <member name="M:CountryCollectionExtensions.Normalize(CountryCollection,System.String)">
             <summary>
-            Returns a normalized value from the matching country code.
+            Returns the normalized value from the matching country code.
             </summary>
             <param name="source">The CountryCollection</param>
             <param name="code">The value to normalize</param>
@@ -130,50 +153,55 @@
         </member>
         <member name="M:CountryCollectionExtensions.Normalize(CountryCollection,System.Int32)">
             <summary>
-            Returns a normalized value from the matching country code.
+            Returns the normalized value from the matching country code.
             </summary>
             <param name="source">The CountryCollection</param>
             <param name="code">A value to normalize</param>
             <returns>The normalized code in the CountryCollection.</returns>
         </member>
-        <member name="T:ShereSoft.ReadOnlyCountryInfo">
+        <member name="T:ShereSoft.CountryInfo">
             <summary>
-            Initializes a new instance of the ReadOnlyCountryInfo class
+            Initializes a new instance of the CountryInfo class
             </summary>
         </member>
-        <member name="P:ShereSoft.ReadOnlyCountryInfo.IsoEnglishShortName">
+        <member name="P:ShereSoft.CountryInfo.IsoEnglishShortName">
             <summary>
-            ISO English Short Name
+            ISO English Short Name (read only)
             </summary>
         </member>
-        <member name="P:ShereSoft.ReadOnlyCountryInfo.IsoAlpha2Code">
+        <member name="P:ShereSoft.CountryInfo.IsoAlpha2Code">
             <summary>
-            ISO Alpha 2 Code
+            ISO Alpha 2 Code (read only)
             </summary>
         </member>
-        <member name="P:ShereSoft.ReadOnlyCountryInfo.IsoAlpha3Code">
+        <member name="P:ShereSoft.CountryInfo.IsoAlpha3Code">
             <summary>
-            ISO Alpha 3 Code
+            ISO Alpha 3 Code (read only)
             </summary>
         </member>
-        <member name="P:ShereSoft.ReadOnlyCountryInfo.IsoNumeric">
+        <member name="P:ShereSoft.CountryInfo.IsoNumeric">
             <summary>
-            ISO Numeric Code
+            ISO Numeric Code (read only)
             </summary>
         </member>
-        <member name="P:ShereSoft.ReadOnlyCountryInfo.Name">
+        <member name="P:ShereSoft.CountryInfo.Name">
             <summary>
             General name
             </summary>
         </member>
-        <member name="M:ShereSoft.ReadOnlyCountryInfo.Equals(System.Object)">
+        <member name="P:ShereSoft.CountryInfo.FullName">
+            <summary>
+            General full name
+            </summary>
+        </member>
+        <member name="M:ShereSoft.CountryInfo.Equals(System.Object)">
             <summary>
             Determines whether the specified object is equal to the current object.
             </summary>
             <param name="obj">The object to compare with the current object.</param>
             <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
         </member>
-        <member name="M:ShereSoft.ReadOnlyCountryInfo.GetHashCode">
+        <member name="M:ShereSoft.CountryInfo.GetHashCode">
             <summary>
             Returns the hash code for this country info.
             </summary>

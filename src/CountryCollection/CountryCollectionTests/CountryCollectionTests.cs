@@ -109,21 +109,39 @@ namespace CountryCollectionTests
 		}
 
 		[Fact]
-		void Test_GetCountryExtension_ValidCountry()
+		void Test_ReadOnlyEnumeration()
 		{
-			Assert.NotNull(new CountryCollection().GetCountry("US"));
+			Assert.True(CountryCollection.Values.Any());
 		}
 
 		[Fact]
-		void Test_ContainsExtension_ValidCountry()
+		void Test_CanGetCountryByCode()
 		{
-			Assert.True(new CountryCollection().Contains("US"));
+			var countries = new CountryCollection();
+
+			Assert.NotNull(countries["US"]);
 		}
 
 		[Fact]
-		void Test_NormalizeExtension_ValidCountry()
+		void Test_CanUpdateGeneralName()
 		{
-			Assert.NotNull(new CountryCollection().Normalize("US"));
+			var update = "America";
+			var country = CountryCollection.GetCountry("US");
+
+			country.Name = update;
+
+			Assert.Equal(update, CountryCollection.GetCountry("US").Name);
+		}
+
+		[Fact]
+		void Test_CanUpdateFullName()
+		{
+			var update = "U.S.A.";
+			var country = CountryCollection.GetCountry("US");
+
+			country.FullName = update;
+
+			Assert.Equal(update, CountryCollection.GetCountry("US").FullName);
 		}
 	}
 }
